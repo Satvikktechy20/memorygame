@@ -1,0 +1,154 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --bg-main:#464646;
+    --bg-card : #2D2727;
+    --border-color: #efc745;
+
+}
+
+body{
+    display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+     gap: 1rem;
+      height: 100vh;
+      background:var(--bg-main);  
+}
+section{
+
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 2rem;
+}
+/*.card{
+
+    width: 7rem;
+    height: 7rem;
+    background-color: var(--bg-card);
+    background-size: contain;
+    border-radius: .6rem;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding: 2rem;
+    
+}
+*/
+span{
+    color: var(--border-color);
+}
+
+h1{
+    color: #fff;
+    font-size: 4rem;
+font-family: "Lexend Deca Light";
+
+}
+/*
+.card-selected{
+    border: .2rem solid var(--border-color);
+}
+
+.card-match{
+    border: .2rem solid purple;
+}*/
+
+.card{
+    position: relative;
+    transition: all .4s linear;
+    transform-style: preserve-3d;
+    padding: 2rem;
+}
+
+.card,.front-card,.back-card{
+height: 7rem;
+width: 7rem;
+}
+
+.back-card,.front-card{
+  backface-visibility: hidden;
+  position: absolute;
+}
+
+.front-card{
+    background-color: var(--border-color);
+    background-size: contain;
+    border-radius: .6rem;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding: 2rem;
+}
+
+.back-card{
+    transform: rotateY(180deg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding: 2rem;
+   /* background-color: #6589F9;*/
+}
+.card-selected{
+    transform: rotateY(180deg);
+}
+
+.card-match .front-card{
+  background-color: var(--bg-card);
+}
+
+#win{
+    display: none;
+    font-size: 2rem  ;
+    margin: 0 !important;
+    height: 50px;
+   padding: 0 !important;
+}
+
+@media (max-width:900px){
+    h1{
+        font-size: 2rem;
+    }
+    span{
+        font-size: 2rem;
+    }
+    body{
+        gap: 0rem;
+    }
+    section{
+        grid-template-columns: repeat(3,1fr);
+        
+    }
+
+    .card,.front-card,.back-card{
+        height: 4rem;
+        width: 4rem;
+        }
+    #win{
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 360px){
+ 
+    h1{
+        position: fixed;
+        font-size: 1.5rem;
+        top :10px  !important;
+        margin-right: 60px !important;
+    }
+    span{
+        margin-right: 30px !important;
+        position: fixed;
+        font-size: 1.5rem;
+        top :10px  !important;
+    }
+    #win{
+        top :50px  !important;
+    }
+    section{ position: fixed;
+        right: 50px  !important;
+    }
+}
